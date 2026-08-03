@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /config/
+Disallow: /forms/_helpers.php
+Sitemap: https://trinetrafleet.com/sitemap.xml

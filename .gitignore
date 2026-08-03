@@ -1,0 +1,9 @@
+config/mail-config.php
+forms/uploads/
+.codex_build/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

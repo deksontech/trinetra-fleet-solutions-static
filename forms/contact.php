@@ -1,0 +1,7 @@
+<?php
+require __DIR__.'/_helpers.php'; guard();
+$required=["department","full_name","email","phone","message"]; foreach($required as $r){ if(empty($_POST[$r])) fail('Please complete all required fields.'); }
+if(!valid_email($_POST['email'])) fail('Please enter a valid email address.');
+$fields=[]; foreach($_POST as $k=>$v){ if(in_array($k,['website','form_started_at'],true)) continue; $fields[$k]=$v; }
+
+$sent=send_basic_mail('New contact enquiry - Trinetra Fleet Solutions',$fields,$_POST['email']); ack($_POST['email'],clean($_POST['full_name'],120)); if(!$sent) fail('Your enquiry could not be emailed right now. Please call or WhatsApp Trinetra Fleet Solutions.'); ok();
