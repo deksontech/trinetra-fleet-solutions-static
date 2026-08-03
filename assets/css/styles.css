@@ -26,7 +26,7 @@ img{display:block;max-width:100%}
 .brand-copy{display:grid;line-height:1.25}
 .brand-copy strong{font-size:1rem;letter-spacing:.02em;color:var(--navy)}
 .brand-copy small{font-size:.75rem;color:var(--steel)}
-.mainnav{display:flex;align-items:center;gap:1.2rem;margin-left:auto;font-size:.9rem;font-weight:650}
+.mainnav{display:flex;align-items:center;gap:1.05rem;margin-left:auto;font-size:.9rem;font-weight:650;white-space:nowrap}
 .mainnav a,.dropdown>a{text-decoration:none;border-radius:3px;padding:.75rem 0;color:var(--ink)}
 .mainnav a:hover,.dropdown>a:hover{color:var(--gold)}
 .dropdown{position:relative}
@@ -46,6 +46,8 @@ img{display:block;max-width:100%}
 .hero::before{content:"";position:absolute;inset:0;background:var(--hero) center/cover no-repeat;opacity:.40}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,24,39,.96),rgba(8,24,39,.78),rgba(8,24,39,.42))}
 .hero-overlay{position:relative;z-index:1;width:min(1280px,100%);margin:0 auto;padding:5.5rem 1rem}
+.hero-grid{position:relative;z-index:1;width:min(1280px,100%);margin:0 auto;padding:5.5rem 1rem;display:grid;grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:start}
+.hero-copy{padding-top:1rem}
 .eyebrow{margin:0 0 .75rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-size:.78rem;font-weight:800}
 .hero h1{max-width:880px;margin:0;font-size:clamp(2.7rem,6vw,5.7rem);line-height:1.03;font-weight:700;letter-spacing:0}
 .hero p{max-width:720px;margin:1.25rem 0 0;color:#f1f5f9;font-size:1.08rem;line-height:1.75}
@@ -54,7 +56,8 @@ img{display:block;max-width:100%}
 .section{max-width:1280px;margin:0 auto;padding:4rem 1rem}
 .section-head{max-width:760px;margin-bottom:2rem}
 .section h2{margin:.25rem 0 0;color:var(--navy);font-size:clamp(1.85rem,3vw,3rem);line-height:1.12;font-weight:700}
-.hero+.section:has(.enquiry-form){margin-top:-4rem;position:relative;z-index:2;padding-top:0}
+.trust-section{padding-top:3rem}
+.trust-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
 .card{overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;box-shadow:0 1px 2px rgba(8,24,39,.04);transition:transform .18s ease,box-shadow .18s ease}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -69,6 +72,16 @@ img{display:block;max-width:100%}
 .pill-grid span,.logo-grid span{border:1px solid var(--line);border-radius:999px;background:#fff;padding:.65rem 1rem;font-size:.92rem}
 .logo-grid span{min-width:180px;border-radius:4px;text-align:center;color:var(--steel)}
 .enquiry-form{border:1px solid var(--line);border-radius:4px;background:#fff;padding:1.5rem;box-shadow:var(--shadow)}
+.hero-form{align-self:start}
+.hero-enquiry{border-color:rgba(255,255,255,.18);box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.form-intro{margin-bottom:1rem}
+.form-intro h2{margin:0;color:var(--navy);font-size:1.35rem;line-height:1.2}
+.form-intro p{margin:.4rem 0 0;color:var(--steel);font-size:.9rem;line-height:1.55}
+.hero-enquiry .grid{gap:.75rem}
+.hero-enquiry label{font-size:.84rem}
+.hero-enquiry input,.hero-enquiry select,.hero-enquiry textarea{padding:.62rem .72rem;font-size:.9rem}
+.hero-enquiry textarea{min-height:66px}
+.hero-enquiry .consent{font-size:.78rem;margin:.8rem 0}
 .grid{display:grid;gap:1rem}
 .two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .full{grid-column:1/-1}
@@ -93,7 +106,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-of
 .sitemap-list a{display:block;margin:.35rem}
 .mapbox{border:1px dashed #cbd5e1;background:#eef2f6;color:var(--steel);padding:2rem;text-align:center}
 .footer{background:var(--navy);color:#dbe4ee;padding:0}
-.footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:2.4rem;max-width:1280px;margin:0 auto;padding:3.5rem 1rem}
+.footer-grid{display:grid;grid-template-columns:1.35fr repeat(3,1fr);gap:2.4rem;max-width:1280px;margin:0 auto;padding:3.5rem 1rem}
+.footer-brand{display:flex;align-items:center;gap:.8rem}
 .footer h2{margin:.2rem 0 1rem;color:#fff;font-size:1rem}
 .footer p{font-size:.92rem;line-height:1.7}
 .footer a{display:block;color:#dbe4ee;text-decoration:none;margin:.45rem 0;font-size:.9rem}
@@ -107,6 +121,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-of
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media(max-width:1120px){
   .cards{grid-template-columns:repeat(2,1fr)}
+  .hero-grid{grid-template-columns:1fr;padding:4.5rem 1rem}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .spec-grid,.contact-grid{grid-template-columns:1fr 1fr}
   .nav-actions{display:none}
@@ -124,11 +140,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-of
   .brand-copy strong{font-size:.92rem}
   .brand-copy small{font-size:.68rem}
   .hero{min-height:520px}
-  .hero-overlay{padding:4.5rem 1rem}
+  .hero-overlay,.hero-grid{padding:4rem 1rem}
   .hero h1{font-size:2.45rem}
   .section{padding:3rem 1rem}
   .hero+.section:has(.enquiry-form){margin-top:-2rem}
-  .cards,.two,.split,.footer-grid,.spec-grid,.contact-grid{grid-template-columns:1fr}
+  .cards,.two,.split,.footer-grid,.spec-grid,.contact-grid,.trust-grid{grid-template-columns:1fr}
   .card img{height:210px}
   .split img{height:300px}
   .sitemap-list{columns:1}
