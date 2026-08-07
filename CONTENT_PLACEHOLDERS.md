@@ -1,6 +1,5 @@
 # Content Placeholders
 
-- Office address
 - Office hours
 - Google Maps embed
 - Verified client logos
